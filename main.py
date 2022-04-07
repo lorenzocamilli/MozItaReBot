@@ -1,7 +1,10 @@
 import os
 import sys
 import json
+sys.path.append('./comandi')
 from pathlib import Path
+
+from comandi import comando_start
 
 from dotenv import load_dotenv
 import logging
@@ -30,14 +33,14 @@ else:
     exit()
 
 
-def start(update: Update, context: CallbackContext):
-    '''Comando start, mostra messaggio di benvenuto e indirizza al menu'''
-    buttons = [
-        [InlineKeyboardButton(str(frasi["button_start"]), callback_data="help")]]
+# def start(update: Update, context: CallbackContext):
+#     '''Comando start, mostra messaggio di benvenuto e indirizza al menu'''
+#     buttons = [
+#         [InlineKeyboardButton(str(frasi["button_start"]), callback_data="help")]]
 
-    reply_markup = InlineKeyboardMarkup(buttons)
-    update.message.reply_text(
-        str(frasi["start"]), reply_markup=reply_markup, parse_mode="MARKDOWN")
+#     reply_markup = InlineKeyboardMarkup(buttons)
+#     update.message.reply_text(
+#         str(frasi["start"]), reply_markup=reply_markup, parse_mode="MARKDOWN")
 
 
 def help(update: Update, context: CallbackContext):
